@@ -1,0 +1,56 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">MotoClub</string>
+    <string name="title_activity_maps" tools:ignore="ExtraTranslation">Map</string>
+    <string name="eventos">Eventos</string>
+    <string name="grupos">Grupos</string>
+    <string name="events">Eventos</string>
+    <string name="m">M</string>
+
+    <string-array name="events">
+        <item>Eventos</item>
+        <item>Procurar</item>
+    </string-array>
+
+    <string-array name="martialState">
+        <item>Estado civil</item>
+        <item>Solteiro</item>
+        <item>Casado</item>
+    </string-array>
+
+    <string name="title_activity_login">Sign in</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="cadastro_de_usuario">Cadastro de Usuário</string>
+    <string name="usuario_name">Nome</string>
+    <string name="last_name">Sobrenome</string>
+    <string name="register_user">Cadastro de Usuario</string>
+    <string name="user_city">Cidade</string>
+    <string name="state_user">Estado</string>
+    <string name="tipo_de_moto">Tipo de moto</string>
+    <string name="email_user">Email</string>
+    <string name="pass_user">Senha</string>
+    <string name="confirmar_senha">Confirmar Senha</string>
+    <string name="cadastrar_usuario">Cadastrar</string>
+    <string name="login">Login</string>
+    <string name="senha">Senha</string>
+    <string name="registrar_se">Registrar - se</string>
+    <string name="cadastro_de_grupo">Cadastro de Grupo</string>
+    <string name="titulo_do_grupo">Titulo do grupo</string>
+    <string name="descri_o_do_grupo">Descrição do grupo</string>
+    <string name="categoria_da_moto">Categoria da moto</string>
+    <string name="add">add</string>
+    <string name="dec">dec</string>
+    <string name="zero">0</string>
+    <string name="numero_de_integrantes">Numero de integrantes</string>
+
+</resources>

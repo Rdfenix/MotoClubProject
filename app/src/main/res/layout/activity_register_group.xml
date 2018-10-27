@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterGroup"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <ScrollView
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shadow_register_form"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:elevation="8dp"
+        tools:targetApi="lollipop"
+        android:layout_marginTop="22dp"
+        android:paddingTop="16dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cadastro_de_grupo"
+                android:layout_gravity="center"
+                android:textSize="20sp"/>
+
+            <EditText
+                android:id="@+id/title_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/titulo_do_grupo"
+                android:layout_gravity="center"
+                android:ems="10"/>
+
+            <EditText
+                android:id="@+id/group_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginTop="10dp"
+                android:inputType="textMultiLine"
+                android:hint="@string/descri_o_do_grupo"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/moto_category"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/categoria_da_moto"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/city_register_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginTop="10dp"
+                android:hint="@string/user_city"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/state_register_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginTop="10dp"
+                android:hint="@string/state_user"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/numero_de_integrantes"
+                android:layout_marginTop="10dp"
+                android:textSize="17sp"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/add_buttom"
+                    android:layout_width="55dp"
+                    android:layout_height="35dp"
+                    android:textAlignment="center"
+                    android:text="@string/add"
+                    android:onClick="increaseNumber"
+                    android:layout_marginEnd="15dp"/>
+
+                <TextView
+                    android:id="@+id/contador"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zero"
+                    android:textStyle="bold"
+                    android:textSize="19sp"/>
+
+                <Button
+                    android:id="@+id/dec_buttom"
+                    android:layout_width="55dp"
+                    android:layout_height="35dp"
+                    android:textAlignment="center"
+                    android:text="@string/dec"
+                    android:onClick="decreaseNumber"
+                    android:layout_marginStart="15dp"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttom_register_group"
+                android:layout_width="325dp"
+                android:layout_height="50dp"
+                android:text="@string/cadastrar_usuario"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="2dp"
+                android:textColor="#fff"
+                android:layout_gravity="center"
+                android:background="@drawable/border_radius_buttom"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

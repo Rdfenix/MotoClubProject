@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterUser"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:background="#FAFAFA">
+
+    <ScrollView
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shadow_register_form"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:elevation="8dp"
+        tools:targetApi="lollipop"
+        android:layout_marginTop="22dp"
+        android:paddingTop="15dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cadastro_de_usuario"
+                android:layout_gravity="center"
+                android:textSize="20sp"/>
+
+            <EditText
+                android:id="@+id/name_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/usuario_name"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp" />
+
+            <EditText
+                android:id="@+id/last_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/last_name"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp" />
+
+            <EditText
+                android:id="@+id/city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/user_city"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"/>
+
+            <EditText
+                android:id="@+id/state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/state_user"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"/>
+
+            <Spinner
+                android:id="@+id/marital_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"/>
+
+            <EditText
+                android:id="@+id/motocycle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:ems="10"
+                android:hint="@string/tipo_de_moto"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/email_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/email_user"
+                android:inputType="textEmailAddress"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/pass_user"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="@string/pass_user"
+                android:inputType="textPassword"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/confirm_pass_user"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="@string/confirmar_senha"
+                android:inputType="textPassword"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/buttom_register"
+                android:layout_width="325dp"
+                android:layout_height="50dp"
+                android:text="@string/cadastrar_usuario"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2dp"
+                android:textColor="#fff"
+                android:layout_gravity="center"
+                android:background="@drawable/border_radius_buttom"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
