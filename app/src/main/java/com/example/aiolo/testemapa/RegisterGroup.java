@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aiolo.testemapa.Interface.GroupOperation;
-import com.example.aiolo.testemapa.Model.APIResponse;
+import com.example.aiolo.testemapa.Model.ResponseModel.APIResponse;
 import com.example.aiolo.testemapa.Model.Group;
 import com.example.aiolo.testemapa.Mthods.APIMethod;
 import com.example.aiolo.testemapa.Mthods.ValidateItems;

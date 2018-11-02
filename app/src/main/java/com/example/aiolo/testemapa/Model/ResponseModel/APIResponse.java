@@ -1,4 +1,4 @@
-package com.example.aiolo.testemapa.Model;
+package com.example.aiolo.testemapa.Model.ResponseModel;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

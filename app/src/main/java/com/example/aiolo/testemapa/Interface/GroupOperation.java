@@ -1,6 +1,6 @@
 package com.example.aiolo.testemapa.Interface;
 
-import com.example.aiolo.testemapa.Model.APIResponse;
+import com.example.aiolo.testemapa.Model.ResponseModel.APIResponse;
 import com.example.aiolo.testemapa.Model.Group;
 
 import retrofit2.Call;

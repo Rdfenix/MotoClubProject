@@ -14,7 +14,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.aiolo.testemapa.Interface.UserOperation;
-import com.example.aiolo.testemapa.Model.APIResponse;
+import com.example.aiolo.testemapa.Model.ResponseModel.APIResponse;
 import com.example.aiolo.testemapa.Model.User;
 import com.example.aiolo.testemapa.Mthods.APIMethod;
 

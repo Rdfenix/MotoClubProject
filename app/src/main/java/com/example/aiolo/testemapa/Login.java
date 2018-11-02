@@ -1,8 +1,8 @@
 package com.example.aiolo.testemapa;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -12,15 +12,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aiolo.testemapa.Interface.UserOperation;
-import com.example.aiolo.testemapa.Model.APIResponse;
+import com.example.aiolo.testemapa.Model.ResponseModel.APIResponse;
 import com.example.aiolo.testemapa.Model.User;
 import com.example.aiolo.testemapa.Mthods.APIMethod;
 
+import io.realm.Realm;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Login extends AppCompatActivity {
 
@@ -29,14 +29,16 @@ public class Login extends AppCompatActivity {
     private Button loginUser;
     private TextView registerUser;
 
-    /*adicionar nesse local a URL da api que esta sendo usada
-    ou caso esteja em um servidor local adicionar o ipv4 da sua maquina*/
-    String BASE_URL = "http://192.168.0.11/motoClubAPI/v1/";
+    Retrofit retrofit;
+
+    Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Realm.init(getBaseContext());
 
         login = findViewById(R.id.login);
         pass = findViewById(R.id.pass);
@@ -84,9 +86,10 @@ public class Login extends AppCompatActivity {
 
     public void attempLogin(User user){
 
-        Retrofit service = APIMethod.API();
+        final String email = user.getEmailUser();
 
-        UserOperation userOperation = service.create(UserOperation.class);
+        retrofit = APIMethod.API();
+        UserOperation userOperation = retrofit.create(UserOperation.class);
         Call<APIResponse> send = userOperation.loginUser(user);
         send.enqueue(new Callback<APIResponse>() {
             @Override
@@ -108,7 +111,12 @@ public class Login extends AppCompatActivity {
                 Log.d("ERROR_POST", t.getMessage());
             }
         });
+    }
+
+    private void saveInDB(){
 
     }
+
+
 
 }
