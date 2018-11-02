@@ -52,5 +52,8 @@
     <string name="dec">dec</string>
     <string name="zero">0</string>
     <string name="numero_de_integrantes">Numero de integrantes</string>
+    <string name="cadastro_de_evento">Cadastro de Evento</string>
+    <string name="local_do_evento">Local do evento</string>
+    <string name="cadastrar_evento">Cadastrar evento</string>
 
 </resources>

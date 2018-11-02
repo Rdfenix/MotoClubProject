@@ -4,6 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterEvent">
+    tools:context=".RegisterEvent"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <ScrollView
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shadow_register_form"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:elevation="8dp"
+        tools:targetApi="lollipop"
+        android:layout_marginTop="22dp"
+        android:paddingTop="16dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cadastro_de_evento"
+                android:layout_gravity="center"
+                android:textSize="20sp"/>
+
+            <EditText
+                android:id="@+id/local_event"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/local_do_evento"
+                android:layout_gravity="center"
+                android:ems="10"/>
+
+            <Button
+                android:id="@+id/buttom_register_event"
+                android:layout_width="325dp"
+                android:layout_height="50dp"
+                android:text="@string/cadastrar_evento"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="2dp"
+                android:textColor="#fff"
+                android:layout_gravity="center"
+                android:background="@drawable/border_radius_buttom"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
 
 </LinearLayout>
