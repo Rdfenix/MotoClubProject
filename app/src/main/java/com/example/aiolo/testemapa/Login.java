@@ -13,10 +13,13 @@ import android.widget.Toast;
 
 import com.example.aiolo.testemapa.Interface.UserOperation;
 import com.example.aiolo.testemapa.Model.ResponseModel.APIResponse;
+import com.example.aiolo.testemapa.Model.ResponseModel.UserResponse;
 import com.example.aiolo.testemapa.Model.User;
 import com.example.aiolo.testemapa.Mthods.APIMethod;
+import com.example.aiolo.testemapa.RealmModel.UserRealm;
 
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -82,37 +85,32 @@ public class Login extends AppCompatActivity {
 
     public void attempLogin(User user){
 
-        final String email = user.getEmailUser();
+        //final String email = user.getEmailUser();
 
         retrofit = APIMethod.API();
         UserOperation userOperation = retrofit.create(UserOperation.class);
-        Call<APIResponse> send = userOperation.loginUser(user);
-        send.enqueue(new Callback<APIResponse>() {
+        Call<UserResponse> response = userOperation.loginUser(user);
+        response.enqueue(new Callback<UserResponse>() {
             @Override
-            public void onResponse(@NonNull Call<APIResponse> call, @NonNull Response<APIResponse> response) {
-                APIResponse apiResponse = response.body();
+            public void onResponse(@NonNull Call<UserResponse> call, @NonNull Response<UserResponse> response) {
+                UserResponse userResponse = response.body();
 
-                assert apiResponse != null;
-                if (apiResponse.getStatusApi().equals(302)){
-                    Toast.makeText(getApplicationContext(), apiResponse.getMsg(), Toast.LENGTH_SHORT).show();
+                assert userResponse != null;
+                if (userResponse.getStatus().equals(302)){
+                    Toast.makeText(getApplicationContext(), "Usuario " + userResponse.getNameUser() +
+                    " encontrado", Toast.LENGTH_SHORT).show();
+
+
                 } else {
-                    if (apiResponse.getStatusApi().equals(404)){
-                        Toast.makeText(getApplicationContext(), apiResponse.getMsg(), Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(getApplicationContext(), userResponse.getMsg(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(@NonNull Call<APIResponse> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<UserResponse> call, @NonNull Throwable t) {
                 Log.d("ERROR_POST", t.getMessage());
             }
         });
     }
-
-    private void saveInDB(){
-
-    }
-
-
-
+    
 }

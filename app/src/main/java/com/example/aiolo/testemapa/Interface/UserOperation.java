@@ -15,8 +15,11 @@ public interface UserOperation {
     @POST("usuario/register")
     Call<APIResponse> saveUser(@Body User user);
 
+    /*@POST("usuario/login")
+    Call<APIResponse> loginUser(@Body User user);*/
+
     @POST("usuario/login")
-    Call<APIResponse> loginUser(@Body User user);
+    Call<UserResponse> loginUser(@Body User user);
 
     @GET("usuario/{email}")
     Call<UserResponse> getUser(@Path("email") String email);
