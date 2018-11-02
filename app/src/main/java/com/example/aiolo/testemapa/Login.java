@@ -1,5 +1,7 @@
 package com.example.aiolo.testemapa;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -12,14 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aiolo.testemapa.Interface.UserOperation;
-import com.example.aiolo.testemapa.Model.ResponseModel.APIResponse;
 import com.example.aiolo.testemapa.Model.ResponseModel.UserResponse;
 import com.example.aiolo.testemapa.Model.User;
 import com.example.aiolo.testemapa.Mthods.APIMethod;
-import com.example.aiolo.testemapa.RealmModel.UserRealm;
+import com.example.aiolo.testemapa.SQLITE.HELPER.UserDbHelper;
+import com.example.aiolo.testemapa.SQLITE.UserContract;
 
-import io.realm.Realm;
-import io.realm.RealmConfiguration;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -100,7 +100,7 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Usuario " + userResponse.getNameUser() +
                     " encontrado", Toast.LENGTH_SHORT).show();
 
-
+                    saveInDB(userResponse);
                 } else {
                     Toast.makeText(getApplicationContext(), userResponse.getMsg(), Toast.LENGTH_SHORT).show();
                 }
@@ -112,5 +112,26 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-    
+
+    public void saveInDB(UserResponse userResponse){
+
+        UserDbHelper userDbHelper = new UserDbHelper(getApplicationContext());
+        SQLiteDatabase db = userDbHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(UserContract.UserEntry.COLUMN_NAME_USUARIO, userResponse.getNameUser());
+        values.put(UserContract.UserEntry.COLUMN_NAME_LAST_NAME, userResponse.getLastName());
+        values.put(UserContract.UserEntry.COLUMN_NAME_CITY, userResponse.getUserCity());
+        values.put(UserContract.UserEntry.COLUMN_NAME_STATE, userResponse.getUserState());
+        values.put(UserContract.UserEntry.COLUMN_NAME_MOTOCYCLE, userResponse.getUserMotocycle());
+        values.put(UserContract.UserEntry.COLUMN_NAME_MARITIAL_STATE, userResponse.getMaritialState());
+        values.put(UserContract.UserEntry.COLUMN_NAME_EMAIL_USER, userResponse.getEmailUser());
+
+        long newRowId = db.insert(UserContract.UserEntry.TABLE_NAME, null, values);
+
+        Log.d("RUD", String.valueOf(newRowId));
+
+    }
+
 }
