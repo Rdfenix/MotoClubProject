@@ -31,14 +31,10 @@ public class Login extends AppCompatActivity {
 
     Retrofit retrofit;
 
-    Realm realm;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        Realm.init(getBaseContext());
 
         login = findViewById(R.id.login);
         pass = findViewById(R.id.pass);
