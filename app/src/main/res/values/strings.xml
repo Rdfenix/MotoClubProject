@@ -55,5 +55,6 @@
     <string name="cadastro_de_evento">Cadastro de Evento</string>
     <string name="local_do_evento">Local do evento</string>
     <string name="cadastrar_evento">Cadastrar evento</string>
+    <string name="titulo">Titulo:</string>
 
 </resources>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shadow_register_form"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:elevation="8dp"
+        tools:targetApi="lollipop"
+        android:layout_marginTop="22dp"
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="15dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/titulo"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:layout_marginEnd="15dp"/>
+            <TextView
+                android:id="@+id/title_group_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="TESTE"
+                android:textColor="#000"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/desc_group_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="15sp"
+            android:textColor="#000"
+            android:hint="TESTE2"/>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/city_group_list"
+                android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:hint="Cidade"
+                android:textSize="17sp"
+                android:textColor="#000"
+                android:layout_marginEnd="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp"/>
+            <TextView
+                android:id="@+id/state_group_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="state"
+                android:textColor="#000"
+                android:textSize="17sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Qdt:"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="17sp"
+                android:layout_marginEnd="8dp"/>
+            <TextView
+                android:id="@+id/qdt_group_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#000"
+                android:hint="0"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -35,11 +35,29 @@
                 android:textSize="20sp"/>
 
             <EditText
+                android:id="@+id/title_event"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Titulo do evento"
+                android:layout_gravity="center"
+                android:ems="10"/>
+
+            <EditText
                 android:id="@+id/local_event"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:hint="@string/local_do_evento"
+                android:layout_gravity="center"
+                android:ems="10"/>
+
+            <EditText
+                android:id="@+id/horario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Horario"
                 android:layout_gravity="center"
                 android:ems="10"/>
 
@@ -55,8 +73,5 @@
                 android:background="@drawable/border_radius_buttom"/>
 
         </LinearLayout>
-
     </ScrollView>
-
-
 </LinearLayout>
