@@ -11,6 +11,7 @@ import android.widget.ListView;
 import com.example.aiolo.testemapa.Interface.GroupOperation;
 import com.example.aiolo.testemapa.Model.ResponseModel.GroupResponse;
 import com.example.aiolo.testemapa.Mthods.APIMethod;
+import com.example.aiolo.testemapa.Mthods.ModalMethod;
 import com.example.aiolo.testemapa.adapterClass.AdapterCustomListViewGroup;
 
 import java.util.ArrayList;
@@ -59,7 +60,6 @@ public class GroupList extends AppCompatActivity {
     }
 
     private void populateListView(List<GroupResponse> body){
-        //listView = findViewById(R.id.list_group);
         adapterCustomListViewGroup = new AdapterCustomListViewGroup(getApplicationContext(), (ArrayList<GroupResponse>) body);
         listView.setAdapter(adapterCustomListViewGroup);
 
@@ -68,7 +68,8 @@ public class GroupList extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 GroupResponse groupResponse = (GroupResponse) parent.getItemAtPosition(position);
 
-                Log.d("RUD", groupResponse.getTitleGroup());
+                //Log.d("RUD", groupResponse.getTitleGroup());
+                ModalMethod.ModalGroup(getApplicationContext(), groupResponse);
             }
         });
     }
