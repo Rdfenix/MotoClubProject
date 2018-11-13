@@ -53,7 +53,6 @@ public class AdapterCustomListViewGroup extends BaseAdapter {
             //cria um item de suporte para nao precisarmos sempre inflar as mesmas informações
             itemHolder = new ItemSuport();
             itemHolder.textTitle = convertView.findViewById(R.id.title_group_list);
-            itemHolder.textDesc = convertView.findViewById(R.id.desc_group_list);
             itemHolder.textCity = convertView.findViewById(R.id.city_group_list);
             itemHolder.textState = convertView.findViewById(R.id.state_group_list);
             itemHolder.textQdt = convertView.findViewById(R.id.qdt_group_list);
@@ -66,7 +65,6 @@ public class AdapterCustomListViewGroup extends BaseAdapter {
         GroupResponse group = groupResponses.get(position);
 
         itemHolder.textTitle.setText(group.getTitleGroup());
-        itemHolder.textDesc.setText(group.getDescGroup());
         itemHolder.textCity.setText(group.getCityGroup());
         itemHolder.textState.setText(group.getStateGroup());
         itemHolder.textQdt.setText(group.getQdtMembers());
@@ -76,7 +74,6 @@ public class AdapterCustomListViewGroup extends BaseAdapter {
 
     private class ItemSuport{
         TextView textTitle;
-        TextView textDesc;
         TextView textCity;
         TextView textState;
         TextView textQdt;

@@ -48,11 +48,17 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".RegisterUser"/>
+        <activity android:name=".RegisterUser" />
         <activity android:name=".Login" />
         <activity android:name=".RegisterGroup" />
         <activity android:name=".RegisterEvent" />
         <activity android:name=".GroupList">
+
+        </activity>
+        <activity
+            android:name=".teste"
+            android:label="@string/title_activity_teste"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
