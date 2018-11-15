@@ -1,6 +1,8 @@
 package com.moto.aiolo.motoclubproject;
 
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +33,7 @@ public class Login extends AppCompatActivity {
     private EditText pass;
     private Button loginUser;
     private TextView registerUser;
+    Context context = this;
 
     Retrofit retrofit;
 
@@ -54,7 +57,8 @@ public class Login extends AppCompatActivity {
         registerUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Testando aqui", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, RegisterUser.class);
+                startActivity(intent);
             }
         });
     }
@@ -84,8 +88,6 @@ public class Login extends AppCompatActivity {
     }
 
     public void attempLogin(User user){
-
-        //final String email = user.getEmailUser();
 
         retrofit = APIMethod.API();
         UserOperation userOperation = retrofit.create(UserOperation.class);
