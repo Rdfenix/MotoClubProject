@@ -31,7 +31,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/cadastro_de_usuario"
+                android:text="Cadastro de Usuario"
                 android:layout_gravity="center"
                 android:textSize="20sp"/>
 
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="@string/usuario_name"
+                android:hint="Nome"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp" />
 
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="@string/last_name"
+                android:hint="Sobrenome"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp" />
 
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="@string/user_city"
+                android:hint="cidade"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"/>
 
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="@string/state_user"
+                android:hint="Estado"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"/>
 
@@ -88,7 +88,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="3dp"
                 android:ems="10"
-                android:hint="@string/tipo_de_moto"
+                android:hint="Moto"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -96,7 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/email_user"
+                android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:layout_marginTop="8dp"
                 android:layout_gravity="center"/>
@@ -106,7 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
-                android:hint="@string/pass_user"
+                android:hint="Senha"
                 android:inputType="textPassword"
                 android:layout_marginTop="8dp"
                 android:layout_gravity="center"/>
@@ -116,7 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
-                android:hint="@string/confirmar_senha"
+                android:hint="Confirmar senha"
                 android:inputType="textPassword"
                 android:layout_marginTop="8dp"
                 android:layout_gravity="center"/>
@@ -125,7 +125,7 @@
                 android:id="@+id/buttom_register"
                 android:layout_width="325dp"
                 android:layout_height="50dp"
-                android:text="@string/cadastrar_usuario"
+                android:text="Cadastrar"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="2dp"
                 android:textColor="#fff"

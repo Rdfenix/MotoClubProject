@@ -30,7 +30,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/cadastro_de_grupo"
+                android:text="Cadastro de Grupo"
                 android:layout_gravity="center"
                 android:textSize="20sp"/>
 
@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:hint="@string/titulo_do_grupo"
+                android:hint="titulo"
                 android:layout_gravity="center"
                 android:ems="10"/>
 
@@ -50,7 +50,7 @@
                 android:ems="10"
                 android:layout_marginTop="10dp"
                 android:inputType="textMultiLine"
-                android:hint="@string/descri_o_do_grupo"
+                android:hint="decricao"
                 android:layout_gravity="center"/>
 
             <EditText
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_marginTop="10dp"
                 android:ems="10"
-                android:hint="@string/categoria_da_moto"
+                android:hint="categoria da moto"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
 
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:layout_marginTop="10dp"
-                android:hint="@string/user_city"
+                android:hint="cidade"
                 android:layout_gravity="center"/>
 
             <EditText
@@ -77,13 +77,13 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:layout_marginTop="10dp"
-                android:hint="@string/state_user"
+                android:hint="estado"
                 android:layout_gravity="center"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/numero_de_integrantes"
+                android:text="numero de integrantes"
                 android:layout_marginTop="10dp"
                 android:textSize="17sp"/>
 
@@ -100,7 +100,7 @@
                     android:layout_width="55dp"
                     android:layout_height="35dp"
                     android:textAlignment="center"
-                    android:text="@string/add"
+                    android:text="ADD"
                     android:onClick="increaseNumber"
                     android:layout_marginEnd="15dp"/>
 
@@ -108,7 +108,7 @@
                     android:id="@+id/contador"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/zero"
+                    android:text="0"
                     android:textStyle="bold"
                     android:textSize="19sp"/>
 
@@ -117,7 +117,7 @@
                     android:layout_width="55dp"
                     android:layout_height="35dp"
                     android:textAlignment="center"
-                    android:text="@string/dec"
+                    android:text="DEC"
                     android:onClick="decreaseNumber"
                     android:layout_marginStart="15dp"/>
 
@@ -127,7 +127,7 @@
                 android:id="@+id/buttom_register_group"
                 android:layout_width="325dp"
                 android:layout_height="50dp"
-                android:text="@string/cadastrar_usuario"
+                android:text="Cadastrar"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="2dp"
                 android:textColor="#fff"

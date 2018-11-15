@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textEmailAddress"
-                android:hint="@string/login"
+                android:hint="Email"
                 android:layout_gravity="center"/>
 
             <EditText
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPassword"
-                android:hint="@string/senha"
+                android:hint="Senha"
                 android:layout_gravity="center"
                 android:layout_marginTop="12dp"/>
 
@@ -46,7 +46,7 @@
                 android:id="@+id/login_buttom"
                 android:layout_width="325dp"
                 android:layout_height="50dp"
-                android:text="@string/login"
+                android:text="Login"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="2dp"
                 android:textColor="#fff"
@@ -57,11 +57,10 @@
                 android:id="@+id/register_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/registrar_se"
+                android:text="Cadastrar"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"/>
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
