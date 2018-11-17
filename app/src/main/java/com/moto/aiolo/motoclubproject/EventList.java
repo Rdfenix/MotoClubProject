@@ -1,12 +1,15 @@
 package com.moto.aiolo.motoclubproject;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.moto.aiolo.motoclubproject.Interface.EventOperation;
 import com.moto.aiolo.motoclubproject.Model.ResponseModel.EventResponse;
 import com.moto.aiolo.motoclubproject.Mthods.APIMethod;
@@ -58,6 +61,17 @@ public class EventList extends AppCompatActivity {
         listView = findViewById(R.id.list_event);
         adapterCustomListViewEvent = new AdapterCustomListViewEvent(getApplicationContext(), (ArrayList<EventResponse>) body);
         listView.setAdapter(adapterCustomListViewEvent);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                EventResponse eventResponse = (EventResponse) parent.getItemAtPosition(position);
+
+                Double lat = eventResponse.getLat();
+                Double lon = eventResponse.getLon();
+
+            }
+        });
     }
 
 }

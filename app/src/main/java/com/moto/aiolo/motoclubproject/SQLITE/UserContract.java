@@ -14,5 +14,6 @@ public final class UserContract {
         public static final String COLUMN_NAME_MARITIAL_STATE = "maritial_state";
         public static final String COLUMN_NAME_MOTOCYCLE = "motocycle";
         public static final String COLUMN_NAME_EMAIL_USER = "email_user";
+        public static final String COLUMN_ID_USER = "id_user";
     }
 }

@@ -1,11 +1,13 @@
 package com.moto.aiolo.motoclubproject;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.location.Address;
 import android.location.Geocoder;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +20,8 @@ import com.moto.aiolo.motoclubproject.Interface.EventOperation;
 import com.moto.aiolo.motoclubproject.Model.Event;
 import com.moto.aiolo.motoclubproject.Model.ResponseModel.APIResponse;
 import com.moto.aiolo.motoclubproject.Mthods.APIMethod;
+import com.moto.aiolo.motoclubproject.SQLITE.HELPER.UserDbHelper;
+import com.moto.aiolo.motoclubproject.SQLITE.UserContract;
 
 import java.io.IOException;
 import java.util.List;
@@ -56,13 +60,42 @@ public class RegisterEvent extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Todos os campos devem ser preenchidos",
                             Toast.LENGTH_SHORT).show();
                 } else {
-                    Event event = new Event(titleEvent, address, hourEvent, "Admin",
+
+
+                    String name = getAllUserName();
+
+                    Log.d("RUD", name);
+
+                    Event event = new Event(titleEvent, address, hourEvent, name,
                             latLong.latitude, latLong.longitude );
                     saveEvent(event);
                 }
             }
         });
     }
+
+
+
+    public String getAllUserName() {
+
+        String selectQuery = "SELECT " + UserContract.UserEntry.COLUMN_NAME_USUARIO +
+                " FROM " + UserContract.UserEntry.TABLE_NAME + " LIMIT 1";
+        UserDbHelper userDbHelper = new UserDbHelper(getApplicationContext());
+        SQLiteDatabase db = userDbHelper.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        cursor.moveToFirst();
+
+        String nameUser = cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.COLUMN_NAME_USUARIO));
+        StringBuilder converse = new StringBuilder();
+        converse.append(nameUser);
+
+
+        db.close();
+        return converse.toString();
+    }
+
 
     public LatLng getLocation(Context context, String addres){
         Geocoder geocoder = new Geocoder(context);

@@ -2,6 +2,7 @@ package com.moto.aiolo.motoclubproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -10,15 +11,25 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.moto.aiolo.motoclubproject.Model.ResponseModel.EventResponse;
+import com.moto.aiolo.motoclubproject.SQLITE.HELPER.UserDbHelper;
+import com.moto.aiolo.motoclubproject.SQLITE.UserContract;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     Context context = this;
+    GoogleMap map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,11 +115,28 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_profile) {
 
         } else if (id == R.id.nav_logout) {
-
+            //Intent intent = new Intent(context, Login.class);
+           // startActivity(intent);
+            DeleteDataInDb();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private void DeleteDataInDb(){
+        UserDbHelper userDbHelper = new UserDbHelper(context);
+        SQLiteDatabase db = userDbHelper.getWritableDatabase();
+
+        int deleteRow = db.delete(UserContract.UserEntry.TABLE_NAME, null, null);
+
+        if (deleteRow == 1){
+            Intent intent = new Intent(context, Login.class);
+            startActivity(intent);
+        }
+        Log.d("RUD", String.valueOf(deleteRow));
+
+    }
+    
 }

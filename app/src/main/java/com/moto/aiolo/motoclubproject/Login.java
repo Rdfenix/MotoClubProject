@@ -132,6 +132,11 @@ public class Login extends AppCompatActivity {
 
         long newRowId = db.insert(UserContract.UserEntry.TABLE_NAME, null, values);
 
+        if (newRowId != -1){
+            Intent intent = new Intent(context, MainActivity.class);
+            startActivity(intent);
+        }
+
         Log.d("RUD", String.valueOf(newRowId));
 
     }
