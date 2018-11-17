@@ -17,11 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.moto.aiolo.motoclubproject.Model.ResponseModel.EventResponse;
 import com.moto.aiolo.motoclubproject.SQLITE.HELPER.UserDbHelper;
 import com.moto.aiolo.motoclubproject.SQLITE.UserContract;
 
@@ -29,7 +24,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     Context context = this;
-    GoogleMap map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +49,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         goToCreateEvent();
+
+
     }
 
     public void goToCreateEvent(){
@@ -67,6 +63,8 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -138,5 +136,5 @@ public class MainActivity extends AppCompatActivity
         Log.d("RUD", String.valueOf(deleteRow));
 
     }
-    
+
 }

@@ -135,6 +135,7 @@ public class Login extends AppCompatActivity {
         if (newRowId != -1){
             Intent intent = new Intent(context, MainActivity.class);
             startActivity(intent);
+            finish();
         }
 
         Log.d("RUD", String.valueOf(newRowId));

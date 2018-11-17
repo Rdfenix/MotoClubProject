@@ -1,6 +1,7 @@
 package com.moto.aiolo.motoclubproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -66,10 +67,6 @@ public class EventList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 EventResponse eventResponse = (EventResponse) parent.getItemAtPosition(position);
-
-                Double lat = eventResponse.getLat();
-                Double lon = eventResponse.getLon();
-
             }
         });
     }

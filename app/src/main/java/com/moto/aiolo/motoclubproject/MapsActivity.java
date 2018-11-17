@@ -1,7 +1,6 @@
 package com.moto.aiolo.motoclubproject;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -30,20 +29,30 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.moto.aiolo.motoclubproject.Interface.EventOperation;
 import com.moto.aiolo.motoclubproject.Model.ResponseModel.EventResponse;
+import com.moto.aiolo.motoclubproject.Mthods.APIMethod;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class MapsActivity extends Fragment implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         GoogleMap.OnMarkerDragListener {
 
 
-    private static GoogleMap mMap;
+    private GoogleMap mMap;
     private GoogleApiClient googleApiClient;
     private final int REQUEST_ACCESS_FINE_LOCATION = 1;
     private final int REQUEST_ACCESS_COARSE_LOCATION = 2;
 
     //variavel de log
     private static final String TAG = "conexao";
+    private Intent intent;
 
     @Nullable
     @Override
@@ -83,9 +92,9 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback, Google
     }
 
     private void setMyLocation() {
-        if (ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_FINE_LOCATION) !=
+        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) !=
                 PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION) !=
+                ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) !=
                         PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -109,10 +118,51 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback, Google
         }
     }
 
+    public void addMakers(){
+        Retrofit retrofit = APIMethod.API();
+        EventOperation eventOperation = retrofit.create(EventOperation.class);
+        Call<List<EventResponse>> request = eventOperation.getAllEvents();
 
+        request.enqueue(new Callback<List<EventResponse>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<EventResponse>> call, @NonNull Response<List<EventResponse>> response) {
+                if (!response.isSuccessful()){
+                    Log.e("ERROR ", response.message());
+                } else {
+
+                    try {
+                        List<EventResponse> points = response.body();
+                        for (int i = 0; i < points.size(); i++){
+                            Double lat = points.get(i).getLat();
+                            Double lon = points.get(i).getLon();
+                            String title = points.get(i).getTitle();
+                            MarkerOptions markerOptions = new MarkerOptions();
+                            LatLng latLng = new LatLng(lat, lon);
+                            markerOptions.position(latLng);
+                            markerOptions.title(title);
+                            mMap.addMarker(markerOptions);
+                            mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+                            mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+                        }
+                    } catch (Exception e){
+                        Log.d("onResponse", "There is an error");
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<EventResponse>> call, @NonNull Throwable t) {
+
+            }
+        });
+    }
 
     private void configureMaps() {
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
+        addMakers();
     }
 
 
@@ -191,5 +241,12 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback, Google
                 new String[]{permissionName}, permissionRequestCode);
     }
 
+    public Intent getIntent() {
+        return intent;
+    }
+
+    public void setIntent(Intent intent) {
+        this.intent = intent;
+    }
 }
 
