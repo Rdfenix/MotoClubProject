@@ -3,12 +3,14 @@ package com.moto.aiolo.motoclubproject.Mthods;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 
+import com.moto.aiolo.motoclubproject.Model.ResponseModel.EventResponse;
 import com.moto.aiolo.motoclubproject.Model.ResponseModel.GroupResponse;
 import com.moto.aiolo.motoclubproject.R;
 
@@ -41,5 +43,10 @@ public class ModalMethod extends AppCompatActivity {
 
         dialog.show();
     }
+
+    public static void ModalEvent(Context context, EventResponse eventResponse){
+
+    }
+
 
 }

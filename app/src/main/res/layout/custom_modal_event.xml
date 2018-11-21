@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/modal_event_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="teste"
+                android:textColor="#000"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/local_event"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="19sp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/horario_event"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="19sp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/author_event"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="19sp"/>
+
+            <Button
+                android:id="@+id/buttom_close_group_modal"
+                android:layout_width="325dp"
+                android:layout_height="50dp"
+                android:text="@string/fechar"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="2dp"
+                android:textColor="#fff"
+                android:layout_gravity="center"
+                android:background="@drawable/border_radius_buttom"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

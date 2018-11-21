@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserProfile"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shadow_register_form"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:elevation="8dp"
+        tools:targetApi="lollipop"
+        android:paddingTop="16dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingBottom="16dp"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/profile_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Voltar"
+            android:layout_gravity="left"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="10dp"
+            android:textSize="20sp"/>
+
+        <ImageView
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="nome"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/profile_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="email"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/profile_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="cidade"
+                android:layout_gravity="center"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" - "
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"/>
+
+            <TextView
+                android:id="@+id/profile_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="estadp"
+                android:layout_gravity="center"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

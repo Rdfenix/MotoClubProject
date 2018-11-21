@@ -1,5 +1,8 @@
 package com.moto.aiolo.motoclubproject;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.moto.aiolo.motoclubproject.Interface.UserOperation;
@@ -35,6 +39,8 @@ public class RegisterUser extends AppCompatActivity {
     private EditText pass;
     private EditText confirmPass;
     private Button register;
+
+    Context context = this;
 
 
     @Override
@@ -143,7 +149,12 @@ public class RegisterUser extends AppCompatActivity {
 
                 assert APIResponse != null;
                 if (APIResponse.getStatusApi().equals(200)){
-                    Toast.makeText(getApplicationContext(), APIResponse.getMsg(), Toast.LENGTH_SHORT).show();
+                    String texto = "Usuario criado com sucesso";
+                    Intent intent = new Intent(context, Login.class);
+                    ModalConfirm(context, texto, intent);
+                } else {
+                    String texto = "Usuario nao pode ser criado";
+                    ModalFail(context, texto);
                 }
             }
 
@@ -152,6 +163,46 @@ public class RegisterUser extends AppCompatActivity {
                 Log.d("ERROR_POST", t.getMessage());
             }
         });
+    }
 
+    private void ModalConfirm(Context context, String text, final Intent intent){
+
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.modal_custom_confirm);
+
+        TextView texto = dialog.findViewById(R.id.confirm_id);
+        Button close = dialog.findViewById(R.id.buttom_close_confirm);
+
+        texto.setText(text);
+
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        dialog.show();
+    }
+
+    private void ModalFail(Context context, String text){
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.modal_custom_confirm);
+
+        TextView texto = dialog.findViewById(R.id.confirm_id);
+        Button close = dialog.findViewById(R.id.buttom_close_confirm);
+
+        texto.setText(text);
+
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 }

@@ -111,7 +111,8 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(context, EventList.class);
             startActivity(intent);
         } else if (id == R.id.nav_profile) {
-
+            Intent intent = new Intent(context, UserProfile.class);
+            startActivity(intent);
         } else if (id == R.id.nav_logout) {
             //Intent intent = new Intent(context, Login.class);
            // startActivity(intent);

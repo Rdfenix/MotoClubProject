@@ -1,6 +1,8 @@
 package com.moto.aiolo.motoclubproject;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Address;
@@ -13,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -38,6 +41,8 @@ public class RegisterEvent extends AppCompatActivity {
     private EditText hour;
     private Button registerEvent;
 
+    Context context = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,11 +66,7 @@ public class RegisterEvent extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                 } else {
 
-
                     String name = getAllUserName();
-
-                    Log.d("RUD", name);
-
                     Event event = new Event(titleEvent, address, hourEvent, name,
                             latLong.latitude, latLong.longitude );
                     saveEvent(event);
@@ -90,9 +91,8 @@ public class RegisterEvent extends AppCompatActivity {
         String nameUser = cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.COLUMN_NAME_USUARIO));
         StringBuilder converse = new StringBuilder();
         converse.append(nameUser);
-
-
         db.close();
+
         return converse.toString();
     }
 
@@ -131,9 +131,12 @@ public class RegisterEvent extends AppCompatActivity {
 
                 assert apiResponse != null;
                 if (apiResponse.getStatusApi().equals(200)){
-                    Toast.makeText(getApplicationContext(), apiResponse.getMsg(), Toast.LENGTH_SHORT).show();
+                    String texto = "Evento criado com sucesso";
+                    Intent intent = new Intent(context, EventList.class);
+                    ModalConfirm(context, texto, intent);
                 } else {
-                    Toast.makeText(getApplicationContext(), apiResponse.getMsg(), Toast.LENGTH_SHORT).show();
+                    String texto = "Falha ao criar evento";
+                    ModalFail(context, texto);
                 }
             }
 
@@ -142,6 +145,47 @@ public class RegisterEvent extends AppCompatActivity {
                 Log.e("ERROR ", t.getMessage());
             }
         });
+    }
+
+    private void ModalConfirm(Context context, String text, final Intent intent){
+
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.modal_custom_confirm);
+
+        TextView texto = dialog.findViewById(R.id.confirm_id);
+        Button close = dialog.findViewById(R.id.buttom_close_confirm);
+
+        texto.setText(text);
+
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        dialog.show();
+    }
+
+    private void ModalFail(Context context, String text){
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.modal_custom_confirm);
+
+        TextView texto = dialog.findViewById(R.id.confirm_id);
+        Button close = dialog.findViewById(R.id.buttom_close_confirm);
+
+        texto.setText(text);
+
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 
 }

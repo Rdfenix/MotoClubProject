@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.moto.aiolo.motoclubproject.Interface.EventOperation;
@@ -24,6 +25,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
+import static com.moto.aiolo.motoclubproject.Mthods.ModalMethod.ModalEvent;
+
 public class EventList extends AppCompatActivity {
 
     private ListView listView;
@@ -35,6 +38,28 @@ public class EventList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_list);
         CreateListView();
+
+        TextView back = findViewById(R.id.goBackGroup);
+        TextView registerEvent = findViewById(R.id.cadastrar_evento);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        registerEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, RegisterEvent.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 
     private void CreateListView(){
@@ -67,6 +92,7 @@ public class EventList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 EventResponse eventResponse = (EventResponse) parent.getItemAtPosition(position);
+                ModalEvent(context, eventResponse);
             }
         });
     }
