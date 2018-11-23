@@ -128,13 +128,10 @@ public class MainActivity extends AppCompatActivity
         UserDbHelper userDbHelper = new UserDbHelper(context);
         SQLiteDatabase db = userDbHelper.getWritableDatabase();
 
-        int deleteRow = db.delete(UserContract.UserEntry.TABLE_NAME, null, null);
+        db.execSQL("DELETE FROM " + UserContract.UserEntry.TABLE_NAME);
 
-        if (deleteRow == 1){
-            Intent intent = new Intent(context, Login.class);
-            startActivity(intent);
-        }
-        Log.d("RUD", String.valueOf(deleteRow));
+        Intent intent = new Intent(context, Login.class);
+        startActivity(intent);
 
     }
 
